@@ -1,28 +1,36 @@
-import { useState } from 'react'
+import React from 'react';
+import Hero from './components/Hero';
+import Experience from './components/Experience';
+import Projects from './components/Projects';
+import Contact from './components/Contact';
+import { Sparkles } from 'lucide-react';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <div className="min-h-screen w-full bg-black text-white">
+      {/* Top navigation */}
+      <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-black/70 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+          <div className="flex items-center gap-2 text-white">
+            <div className="flex h-8 w-8 items-center justify-center rounded-md bg-gradient-to-br from-purple-500 via-blue-500 to-orange-400">
+              <Sparkles className="h-4 w-4" />
+            </div>
+            <span className="text-sm font-semibold tracking-wide">Qosmic Labs</span>
+          </div>
+          <nav className="hidden gap-6 text-sm text-white/80 md:flex">
+            <a href="#experience" className="hover:text-white">Experience</a>
+            <a href="#projects" className="hover:text-white">Projects</a>
+            <a href="#contact" className="hover:text-white">Contact</a>
+          </nav>
         </div>
-      </div>
-    </div>
-  )
-}
+      </header>
 
-export default App
+      <main>
+        <Hero />
+        <Experience />
+        <Projects />
+        <Contact />
+      </main>
+    </div>
+  );
+}
